@@ -1,0 +1,20 @@
+.movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.movieItem img {
+    width: 300px;
+}
+
+.pageTitle {
+    color: #fff;
+    font-size: 48px;
+}
+
+.movieTitle {
+    color: #fff;
+    margin-top: 8px;
+    margin-bottom: 48px;
+}
