@@ -1,10 +1,18 @@
+.navigation {
+    text-align: left;
+}
+
 .menuTitleHome {
-    color: lightpink;
     font-size: 18px;
     margin-right: 20px;
+    color: #fff;
 }
 
 .menuTitleMovies {
-    color: lightskyblue;
     font-size: 18px;
+    color: #fff;
+}
+
+.active {
+    color: tomato;
 }

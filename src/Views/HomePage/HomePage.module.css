@@ -5,7 +5,7 @@
 }
 
 .movieItem img {
-    width: 300px;
+    width: 250px;
 }
 
 .pageTitle {
@@ -17,4 +17,5 @@
     color: #fff;
     margin-top: 8px;
     margin-bottom: 48px;
+    font-size: 14px;
 }

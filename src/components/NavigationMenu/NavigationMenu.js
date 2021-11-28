@@ -4,11 +4,20 @@ import s from './NavigationMenu.module.css';
 
 const NavigationMenu = () => {
     return (
-        <nav>
-            <NavLink to="/" className={s.menuTitleHome}>
+        <nav className={s.navigation}>
+            <NavLink
+                exact
+                to="/"
+                className={s.menuTitleHome}
+                activeClassName={s.active}
+            >
                 Home
             </NavLink>
-            <NavLink to="/movies" className={s.menuTitleMovies}>
+            <NavLink
+                to="/movies"
+                className={s.menuTitleMovies}
+                activeClassName={s.active}
+            >
                 Movies
             </NavLink>
         </nav>
