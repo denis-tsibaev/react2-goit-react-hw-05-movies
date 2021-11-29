@@ -28,7 +28,7 @@ const HomePage = () => {
                             <li key={id} className={s.movieItem}>
                                 <Link
                                     to={{
-                                        pathname: `${url}/movies${id}`,
+                                        pathname: `${url}movies/${id}`,
                                         state: { from: location },
                                     }}
                                 >

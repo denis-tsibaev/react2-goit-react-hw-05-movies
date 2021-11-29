@@ -1,0 +1,39 @@
+.btnGoBack {
+    position: absolute;
+    top: 750px;
+    left: 550px;
+    border: 0;
+    padding: 10px 50px;
+    background-color: rgb(128, 128, 0);
+    color: #fff;
+}
+
+.descriptionContainer {
+    width: 800px;
+    margin: 0 auto;
+    color: #fff;
+    text-align: left;
+}
+
+.genreList {
+    margin-bottom: 16px;
+}
+
+.descrItem {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.cast {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+}
+.reviews {
+    font-size: 18px;
+    color: #fff;
+}
+
+.active {
+    color: tomato;
+}
