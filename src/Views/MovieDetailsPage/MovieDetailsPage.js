@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import {
     NavLink,
     Route,
@@ -9,11 +9,15 @@ import {
     useRouteMatch,
 } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Spinner from '../../components/Spinner';
 import noImage from '../../Images/default.jpg';
 import { getMovieDetails } from '../../Service/ServiceApi';
-import Cast from '../Cast';
-import Reviews from '../Reviews';
 import s from './MovieDetailsPage.module.css';
+
+const Reviews = lazy(() =>
+    import('../Reviews' /*webpackChunkName: "Reviews"*/),
+);
+const Cast = lazy(() => import('../Cast' /*webpackChunkName: "Cast" */));
 
 const MovieDetailsPage = () => {
     const [movie, setMovie] = useState({});
@@ -53,18 +57,25 @@ const MovieDetailsPage = () => {
 
     return (
         <section>
-            <button type="button" onClick={onGoBack} className={s.btnGoBack}>
-                Go back
-            </button>
-            <img
-                src={
-                    poster_path
-                        ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                        : noImage
-                }
-                alt={title}
-                width="400"
-            />
+            <div className={s.imageContainer}>
+                <button
+                    type="button"
+                    onClick={onGoBack}
+                    className={s.btnGoBack}
+                >
+                    Go back
+                </button>
+                <img
+                    src={
+                        poster_path
+                            ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                            : noImage
+                    }
+                    alt={title}
+                    width="400"
+                />
+            </div>
+
             <div className={s.descriptionContainer}>
                 <p className={s.descrItem}>{title}</p>
                 <p className={s.descrItem}>Date of release: {release_date}</p>
@@ -108,15 +119,16 @@ const MovieDetailsPage = () => {
                     Reviews
                 </NavLink>
             </nav>
-
-            <Switch>
-                <Route path={`${path}:movieId/cast`}>
-                    <Cast movieId={movieId} />
-                </Route>
-                <Route path={`${path}:movieId/reviews`}>
-                    <Reviews movieId={movieId} />
-                </Route>
-            </Switch>
+            <Suspense fallback={<Spinner />}>
+                <Switch>
+                    <Route path={`${path}:movieId/cast`}>
+                        <Cast movieId={movieId} />
+                    </Route>
+                    <Route path={`${path}:movieId/reviews`}>
+                        <Reviews movieId={movieId} />
+                    </Route>
+                </Switch>
+            </Suspense>
         </section>
     );
 };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import SearchForm from '../../components/SearchForm';
 import noImage from '../../Images/default.jpg';
@@ -11,11 +11,11 @@ const MoviesPage = () => {
     const history = useHistory();
     const location = useLocation();
 
-    const searchQuery = new URLSearchParams(location.search).get('query') ?? '';
-
     const onChangeQuery = value => {
         history.push({ ...location, search: `query=${value}` });
     };
+
+    const searchQuery = new URLSearchParams(location.search).get('query');
 
     useEffect(() => {
         if (!searchQuery) {
@@ -26,7 +26,7 @@ const MoviesPage = () => {
             .then(({ data }) => {
                 if (data.results.length === 0) {
                     toast.error(`No movie for your request ${searchQuery}`);
-                    setMovie({});
+                    setMovie(null);
                 }
                 setMovie(data.results);
             })
@@ -42,7 +42,12 @@ const MoviesPage = () => {
                 <ul className={s.movieList}>
                     {movie.map(({ id, poster_path, title }) => (
                         <li key={id} className={s.movieItem}>
-                            <NavLink to={{ pathname: `/movies/${id}` }}>
+                            <Link
+                                to={{
+                                    pathname: `/movies/${id}`,
+                                    state: { from: location },
+                                }}
+                            >
                                 <p className={s.movieTitle}>{title}</p>
                                 <img
                                     src={
@@ -51,9 +56,9 @@ const MoviesPage = () => {
                                             : noImage
                                     }
                                     alt={title}
-                                    width="200"
+                                    width="250"
                                 />
-                            </NavLink>
+                            </Link>
                         </li>
                     ))}
                 </ul>

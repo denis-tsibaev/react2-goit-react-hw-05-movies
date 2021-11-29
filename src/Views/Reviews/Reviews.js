@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Spinner from '../../components/Spinner';
@@ -41,6 +42,10 @@ const Reviews = ({ movieId }) => {
             )}
         </section>
     );
+};
+
+Reviews.propTypes = {
+    movieId: PropTypes.string.isRequired,
 };
 
 export default Reviews;

@@ -1,11 +1,16 @@
 .btnGoBack {
     position: absolute;
-    top: 750px;
-    left: 550px;
+    top: 560px;
+    left: 130px;
     border: 0;
     padding: 10px 50px;
     background-color: rgb(128, 128, 0);
     color: #fff;
+}
+
+.imageContainer {
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .descriptionContainer {

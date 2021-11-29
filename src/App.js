@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,9 +6,19 @@ import Container from './components/Container';
 import NavigationMenu from './components/NavigationMenu';
 import Spinner from './components/Spinner';
 import { ReactComponent as Logo } from './Images/blue_long.svg';
-import HomePage from './Views/HomePage';
-import MovieDetailsPage from './Views/MovieDetailsPage';
-import MoviesPage from './Views/MoviesPage';
+
+const HomePage = lazy(() =>
+    import('./Views/HomePage' /*webpackChunkName: "HomePage"*/),
+);
+const MovieDetailsPage = lazy(() =>
+    import(
+        './Views/MovieDetailsPage' /*webpackChunkName: "MovieDetailsPage" */
+    ),
+);
+
+const MoviesPage = lazy(() =>
+    import('./Views/MoviesPage' /*webpackChunkName: "MoviesPage" */),
+);
 
 function App() {
     return (

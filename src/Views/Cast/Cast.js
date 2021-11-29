@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import noImage from '../../Images/default.jpg';
 import Spinner from '../../components/Spinner';
+import noImage from '../../Images/default.jpg';
 import { getCast } from '../../Service/ServiceApi';
 import s from './Cast.module.css';
 
@@ -48,6 +49,10 @@ const Cast = ({ movieId }) => {
             )}
         </section>
     );
+};
+
+Cast.propTypes = {
+    movieId: PropTypes.string.isRequired,
 };
 
 export default Cast;

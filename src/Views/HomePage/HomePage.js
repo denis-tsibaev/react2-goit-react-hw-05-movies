@@ -39,6 +39,7 @@ const HomePage = () => {
                                                 : noImage
                                         }
                                         alt={title}
+                                        width="250"
                                     />
                                     <p className={s.movieTitle}>{title}</p>
                                 </Link>
