@@ -17,5 +17,5 @@ export const getReviews = movieId =>
 
 export const getMovieBySearch = searchQuery =>
     axios.get(
-        `${BASE_URL}search/movie?api_key=${API_KEY}&query=${searchQuery}`,
+        `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searchQuery}`,
     );
