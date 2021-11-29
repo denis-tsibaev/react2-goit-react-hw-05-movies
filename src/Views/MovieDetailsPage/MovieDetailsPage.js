@@ -110,10 +110,10 @@ const MovieDetailsPage = () => {
             </nav>
 
             <Switch>
-                <Route path={`${path}/:movieId/cast`}>
+                <Route path={`${path}:movieId/cast`}>
                     <Cast movieId={movieId} />
                 </Route>
-                <Route path={`${path}/:movieId/reviews`}>
+                <Route path={`${path}:movieId/reviews`}>
                     <Reviews movieId={movieId} />
                 </Route>
             </Switch>

@@ -1,0 +1,22 @@
+.castList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    color: #fff;
+}
+
+.castImage {
+    width: 100px;
+}
+
+.castItem:not(:last-child) {
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+.castName {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
