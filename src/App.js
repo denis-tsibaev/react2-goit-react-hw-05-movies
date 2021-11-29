@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Container from './components/Container';
 import NavigationMenu from './components/NavigationMenu';
+import Spinner from './components/Spinner';
 import { ReactComponent as Logo } from './Images/blue_long.svg';
 import HomePage from './Views/HomePage';
 import MovieDetailsPage from './Views/MovieDetailsPage';
@@ -12,9 +13,9 @@ import MoviesPage from './Views/MoviesPage';
 function App() {
     return (
         <Container>
-            <Suspense fallback={<h2>Loading...</h2>}>
-                <Logo style={{ width: 1000, marginBottom: 60 }} />
-                <NavigationMenu />
+            <Logo style={{ width: 1000, marginBottom: 60 }} />
+            <NavigationMenu />
+            <Suspense fallback={<Spinner />}>
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                     <Route

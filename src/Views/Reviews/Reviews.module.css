@@ -1,0 +1,13 @@
+.reviewsList {
+    color: #fff;
+    text-align: left;
+}
+
+.rewiewsItem {
+    margin-bottom: 50px;
+}
+
+.noReview {
+    color: #fff;
+    font-size: 20px;
+}
